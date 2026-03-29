@@ -2,9 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
 }
 
+/* Hero Section CSS */
 .hero-section {
     display: flex;
     align-items: center;
@@ -41,7 +43,8 @@
     display: flex;
     align-items: center;
     justify-content: start;
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     padding: 8px;
     font-size: 15px;
     font-weight: 700;
@@ -51,6 +54,7 @@
 
 .hero-section-text-one span {
     color: #0066EE;
+    width: 100%;
 }
 
 .hero-section-text-two {
@@ -65,6 +69,7 @@
 
 .hero-section-text-two span {
     color: #0066EE;
+    width: 100%;
 }
 
 .hero-section-btn {
@@ -104,3 +109,267 @@
     border: 1px solid #0066EE;
     color: #0066EE;
 }
+
+/* Hero Section Css Complete */
+
+/* Features-intro */
+.features-intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 400px;
+    background-color: #0066EE;
+}
+
+
+.features-intro-text {
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.features-intro-text h1 {
+    color: white;
+    font-size: 60px;
+}
+
+
+/* Features-intro */
+
+/* Features Css */
+
+.features {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.features-box {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.features-img {
+
+    width: 700px;
+    height: 900px;
+}
+
+.features-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.features-text span {
+    font-size: 60px;
+    font-weight: 800;
+    width: 100%;
+}
+
+.features-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 1200px;
+}
+
+.features-text-one {
+    max-width: 450px;
+    width: 100%;
+}
+
+.features-text-one h1 {
+    font-size: 45px;
+    width: 100%;
+
+}
+
+.features-text-two {
+    width: 100%;
+    max-width: 450px;
+}
+
+.features-text-two p {
+    width: 100%;
+    font-weight: 300;
+}
+
+/* Features CSS complete */
+
+
+/* Clients CSS */
+.clients {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clients-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.clients-img-box {
+    overflow-y: hidden;
+    scrollbar-width: none;
+    height: 500px;
+    width: 100%;
+    display: flex;
+
+    align-items: center;
+    gap: 20px;
+}
+
+.clients-img-card {
+    flex-shrink: 0;
+    max-width: 550px;
+    width: 100%;
+    height: 350px;
+
+}
+
+.clients-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.clients-text {
+    width: 100%;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0A0A0A;
+}
+
+.clients-text-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 520px;
+    width: 100%;
+}
+
+.clients-text-box h1 {
+    font-size: 70px;
+    width: 100%;
+    color: white;
+
+}
+
+/* Clients CSS complete */
+
+
+/* Cta Section CSS */
+.cta-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 600px;
+    background-color: #0066EE;
+}
+
+.cta-section-box {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cta-login-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.cta-login-section input {
+    width: 300px;
+    height: 60px;
+    border: 1px solid #0066EE;
+    border-radius: 5px;
+    padding: 20px;
+    outline: none;
+}
+
+.cta-login-section button {
+    display: flex;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 60px;
+    background-color: #0066EE;
+    color: white;
+    border-radius: 12px;
+    border: 1px solid white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cta-login-section button:hover {
+    border: 1px solid #0066EE;
+    color: #0066EE;
+    background-color: white;
+    transform: scale(0.90);
+    cursor: pointer;
+}
+
+.cta-login-section input::placeholder {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+
+.cta-section-text {
+
+    max-width: 650px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cta-section-text h1 {
+    color: white;
+    font-size: 85px;
+    width: 100%;
+}
+
+
+/* Cta Section CSS Complete */
