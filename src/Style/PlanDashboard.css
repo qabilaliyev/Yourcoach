@@ -1,0 +1,377 @@
+/* ─── PlanDashboard.css ─────────────────────────────── */
+
+.pd-wrap {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1e293b;
+}
+
+/* Tabs */
+.pd-tabs {
+    display: flex;
+    gap: 4px;
+    background: #f1f5f9;
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 20px;
+}
+
+.pd-tab {
+    flex: 1;
+    padding: 8px 10px;
+    border: none;
+    background: transparent;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.18s;
+}
+
+.pd-tab--active {
+    background: #ffffff;
+    color: #1e293b;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Card */
+.pd-card {
+    background: #ffffff;
+    border: 0.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.pd-card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+/* Metric grid */
+.pd-metric-row {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+}
+
+@media (max-width: 560px) {
+    .pd-metric-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.pd-metric {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 12px 8px;
+    text-align: center;
+}
+
+.pd-metric-val {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.pd-metric-unit {
+    font-size: 12px;
+    font-weight: 400;
+    color: #64748b;
+}
+
+.pd-metric-lbl {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 3px;
+}
+
+/* Day tabs */
+.pd-day-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.pd-day-btn {
+    padding: 5px 14px;
+    border: 0.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #ffffff;
+    color: #64748b;
+    transition: all 0.15s;
+}
+
+.pd-day-btn--active {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+}
+
+/* Meal list */
+.pd-meal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.pd-meal-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 0.5px solid #f1f5f9;
+}
+
+.pd-meal-row:last-child {
+    border-bottom: none;
+}
+
+.pd-meal-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    min-width: 100px;
+    flex-shrink: 0;
+    padding-top: 1px;
+}
+
+.pd-meal-food {
+    font-size: 13px;
+    color: #334155;
+    flex: 1;
+    line-height: 1.4;
+}
+
+.pd-meal-kcal {
+    font-size: 12px;
+    color: #94a3b8;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.pd-meal-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    padding-top: 12px;
+    margin-top: 4px;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Bars */
+.pd-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pd-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pd-bar-label {
+    font-size: 12px;
+    color: #64748b;
+    width: 90px;
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.pd-bar-track {
+    flex: 1;
+    height: 7px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.pd-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+.pd-bar-vals {
+    font-size: 11px;
+    color: #94a3b8;
+    width: 100px;
+    flex-shrink: 0;
+    text-align: right;
+}
+
+/* Badges */
+.pd-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+.pd-badge--ok {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.pd-badge--low {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.pd-badge--high {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+/* Compare */
+.pd-compare-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.pd-compare-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 0.5px solid #f1f5f9;
+    flex-wrap: wrap;
+}
+
+.pd-compare-row:last-child {
+    border-bottom: none;
+}
+
+.pd-c-label {
+    font-size: 13px;
+    font-weight: 500;
+    width: 80px;
+    flex-shrink: 0;
+    color: #475569;
+}
+
+.pd-c-actual {
+    font-size: 13px;
+    font-weight: 600;
+    width: 80px;
+    flex-shrink: 0;
+    color: #0f172a;
+}
+
+.pd-c-target {
+    font-size: 12px;
+    width: 90px;
+    flex-shrink: 0;
+    color: #94a3b8;
+}
+
+.pd-c-diff {
+    font-size: 12px;
+    color: #94a3b8;
+    flex: 1;
+}
+
+/* Tips */
+.pd-tip {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #334155;
+    line-height: 1.5;
+    border-left: 3px solid #0066EE;
+}
+
+.pd-tip:last-child {
+    margin-bottom: 0;
+}
+
+/* Exercise */
+.pd-ex-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.pd-ex-card {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 0.5px solid #f1f5f9;
+    align-items: flex-start;
+}
+
+.pd-ex-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.pd-ex-icon {
+    font-size: 18px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.pd-ex-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 3px;
+}
+
+.pd-ex-desc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.45;
+}
+
+/* Warn box */
+.pd-warn-box {
+    background: #fffbeb;
+    border: 0.5px solid #fcd34d;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: #92400e;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+/* Empty */
+.pd-empty {
+    font-size: 13px;
+    color: #94a3b8;
+    padding: 8px 0;
+}
+
+.pd-empty-state {
+    text-align: center;
+    padding: 48px 16px;
+    color: #94a3b8;
+    font-size: 14px;
+}

@@ -4,6 +4,7 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
+    background-color: white;
 }
 
 /* Hero Section CSS */
@@ -216,7 +217,8 @@
 
 /* Clients CSS */
 .clients {
-    max-width: 1200px;
+    background-color: #0066EE;
+    height: 800px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -224,64 +226,72 @@
 }
 
 .clients-box {
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.clients-img-box {
     overflow-y: hidden;
     scrollbar-width: none;
-    height: 500px;
+    max-width: 1200px;
     width: 100%;
-    display: flex;
-
-    align-items: center;
-    gap: 20px;
+    height: 600px;
 }
 
-.clients-img-card {
+.clients-card-box {
     flex-shrink: 0;
-    max-width: 550px;
     width: 100%;
-    height: 350px;
+    height: 600px;
+    transition: all 0.5s ease;
 
+    display: flex;
 }
 
-.clients-img-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-}
 
-.clients-text {
+.clients-img-box {
+    padding: 50px;
+    max-width: 600px;
     width: 100%;
-    height: 300px;
-    width: 100%;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0A0A0A;
 }
 
 .clients-text-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    max-width: 520px;
+    max-width: 600px;
     width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
 }
 
 .clients-text-box h1 {
-    font-size: 70px;
-    width: 100%;
     color: white;
-
+    font-size: 3.5rem;
 }
+
+.clients-text-box span {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.clients-text-box p {
+    font-size: 20px;
+    color: white;
+}
+
+.clients-text-box span {
+    font-size: 2.5rem;
+}
+
+.clients-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 /* Clients CSS complete */
 

@@ -13,6 +13,7 @@
   justify-content: center;
   width: 100%;
   flex-direction: column;
+
 }
 
 .introscreen {
@@ -21,4 +22,5 @@
   justify-content: center;
   width: 100%;
   flex-direction: column;
+  background-color: white;
 }
