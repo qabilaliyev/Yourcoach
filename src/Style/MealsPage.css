@@ -1,0 +1,549 @@
+/* ================================================================
+   YourCoach — MealsPage.css
+   Palette : #1E3A8A (navy) · #FF8F00 (amber) · #f8fafc / #fff
+   Font    : Montserrat  (matches Header + Hero + Footer)
+   Import this AFTER Calculator.css — overrides meals-specific styles
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+/* ── Page wrapper ─────────────────────────────────────────────── */
+.meals-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background: #f8fafc;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    padding: 40px 20px 64px;
+}
+
+.meals-container {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+/* ── Card shell ───────────────────────────────────────────────── */
+.meals-card {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-top: 3px solid #1E3A8A;
+    border-radius: 16px;
+    padding: 36px 40px;
+    box-shadow: 0 4px 20px rgba(30, 58, 138, .07);
+    transition: border-color .2s ease;
+    font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+/* ── View tabs ────────────────────────────────────────────────── */
+.view-tabs {
+    display: flex;
+    gap: 4px;
+    background: #f1f5f9;
+    border: 1.5px solid #e2e8f0;
+    padding: 4px;
+    border-radius: 10px;
+    margin-bottom: 32px;
+    width: fit-content;
+}
+
+.view-tab {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 22px;
+    background: transparent;
+    border: none;
+    border-radius: 7px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: background .18s ease, color .18s ease, box-shadow .18s ease;
+}
+
+.view-tab:hover {
+    color: #1E3A8A;
+}
+
+.view-tab--active {
+    background: #fff;
+    color: #1E3A8A;
+    box-shadow: 0 1px 6px rgba(30, 58, 138, .1);
+}
+
+/* ── Section headings ─────────────────────────────────────────── */
+.diet-plan-title,
+.food-log-title {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 6px;
+    letter-spacing: -.025em;
+}
+
+.diet-plan-subtitle,
+.food-log-subtitle {
+    font-size: 13.5px;
+    color: #6b7280;
+    margin-bottom: 24px;
+    line-height: 1.65;
+    font-weight: 400;
+}
+
+/* ── Daily target cards ───────────────────────────────────────── */
+.daily-targets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.target-card {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.target-card:hover {
+    border-color: #bfcfef;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, .08);
+    transform: translateY(-2px);
+}
+
+/* first card = calorie highlight */
+.target-card:first-child {
+    background: #eef2fb;
+    border-color: #bfcfef;
+}
+
+.target-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 6px;
+}
+
+.target-value {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #1E3A8A;
+    line-height: 1;
+    letter-spacing: -.03em;
+}
+
+.target-unit {
+    display: block;
+    font-size: 11px;
+    color: #94a3b8;
+    font-weight: 500;
+    margin-top: 3px;
+}
+
+/* ── Section title (used inside plan sections) ────────────────── */
+.section-title {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 14px;
+    letter-spacing: -.01em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* amber underline accent */
+.section-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #FF8F00, transparent);
+    border-radius: 1px;
+}
+
+/* ── Weekly plan card ─────────────────────────────────────────── */
+.weekly-plan {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(30, 58, 138, .05);
+}
+
+/* day tab row */
+.day-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+}
+
+.day-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.day-btn {
+    flex-shrink: 0;
+    padding: 7px 16px;
+    border: 1.5px solid #e2e8f0;
+    background: #fff;
+    border-radius: 8px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all .18s ease;
+}
+
+.day-btn:hover {
+    border-color: #bfcfef;
+    color: #1E3A8A;
+    background: #eef2fb;
+}
+
+.day-btn--active {
+    background: #1E3A8A;
+    border-color: #1E3A8A;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(30, 58, 138, .2);
+}
+
+/* ── Meal rows ────────────────────────────────────────────────── */
+.meal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.meal-row {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 11px 16px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1.5px solid #e2e8f0;
+    transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.meal-row:hover {
+    border-color: #bfcfef;
+    box-shadow: 0 2px 8px rgba(30, 58, 138, .07);
+}
+
+.meal-time {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #1E3A8A;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+}
+
+.meal-food {
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.45;
+    font-weight: 400;
+}
+
+.meal-kcal {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #FF8F00;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+/* daily total bar */
+.meal-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 16px;
+    background: #1E3A8A;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.meal-total span {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+/* ── Exercise plan section ────────────────────────────────────── */
+.exercise-plan {
+    background: #fff4e0;
+    border: 1.5px solid #f5c060;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.exercise-plan .section-title {
+    color: #b45309;
+}
+
+.exercise-plan .section-title::after {
+    background: linear-gradient(90deg, #FF8F00, transparent);
+}
+
+.exercise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.exercise-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1.5px solid #ffe0a0;
+    transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.exercise-card:hover {
+    border-color: #FF8F00;
+    box-shadow: 0 4px 12px rgba(255, 143, 0, .12);
+}
+
+.exercise-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff4e0;
+    border-radius: 10px;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.exercise-content {
+    flex: 1;
+}
+
+.exercise-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 3px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+.exercise-desc {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.55;
+}
+
+/* ── Food log meal cards ──────────────────────────────────────── */
+.hc-meal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.hc-meal-card {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px 22px;
+    transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.hc-meal-card:hover {
+    border-color: #bfcfef;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, .07);
+}
+
+.hc-meal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.hc-meal-num {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #1E3A8A;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.hc-meal-remove {
+    background: none;
+    border: 1.5px solid #fca5a5;
+    color: #dc2626;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .18s ease;
+}
+
+.hc-meal-remove:hover {
+    background: #fef2f2;
+    border-color: #dc2626;
+}
+
+/* ── Add meal button ──────────────────────────────────────────── */
+.hc-btn-add-meal {
+    background: #fff;
+    color: #1E3A8A;
+    border: 1.5px dashed #bfcfef;
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .18s ease;
+    margin-bottom: 20px;
+}
+
+.hc-btn-add-meal:hover {
+    background: #eef2fb;
+    border-color: #1E3A8A;
+    border-style: solid;
+}
+
+/* ── Nav buttons ──────────────────────────────────────────────── */
+.hc-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 1.5px solid #e2e8f0;
+}
+
+.hc-btn-back {
+    padding: 11px 24px;
+    border-radius: 10px;
+    border: 1.5px solid #e2e8f0;
+    background: transparent;
+    color: #64748b;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .18s ease;
+}
+
+.hc-btn-back:hover {
+    border-color: #bfcfef;
+    color: #1E3A8A;
+    background: #eef2fb;
+}
+
+.hc-btn-next {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 11px 28px;
+    border-radius: 10px;
+    border: none;
+    background: #FF8F00;
+    color: #fff;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
+    letter-spacing: .01em;
+}
+
+.hc-btn-next:hover {
+    background: #e07d00;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(255, 143, 0, .32);
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .meals-card {
+        padding: 28px 24px;
+    }
+
+    .daily-targets {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .meals-page {
+        padding: 20px 14px 48px;
+    }
+
+    .meals-card {
+        padding: 22px 18px;
+    }
+
+    .daily-targets {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .daily-targets .target-card:last-child {
+        grid-column: span 2;
+    }
+
+    .diet-plan-title,
+    .food-log-title {
+        font-size: 20px;
+    }
+
+    .view-tab {
+        padding: 8px 14px;
+        font-size: 12.5px;
+    }
+
+    .meal-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .meal-kcal {
+        font-size: 11.5px;
+    }
+
+    .hc-nav {
+        flex-direction: column;
+    }
+
+    .hc-btn-back,
+    .hc-btn-next {
+        width: 100%;
+        justify-content: center;
+    }
+}

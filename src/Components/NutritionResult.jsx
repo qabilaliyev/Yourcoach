@@ -24,8 +24,8 @@ export default function NutritionResult({ data, tdee }) {
 
     const getStatus = (actual, target, tolerance = 0.15) => {
         const ratio = actual / target;
-        if (ratio < 1 - tolerance) return { label: "Asagi", icon: "↓", cls: "status-low" };
-        if (ratio > 1 + tolerance) return { label: "Yuksek", icon: "↑", cls: "status-high" };
+        if (ratio < 1 - tolerance) return { label: "Low", icon: "↓", cls: "status-low" };
+        if (ratio > 1 + tolerance) return { label: "High", icon: "↑", cls: "status-high" };
         return { label: "Normal", icon: "✓", cls: "status-ok" };
     };
 
@@ -36,35 +36,35 @@ export default function NutritionResult({ data, tdee }) {
     const waterStatus = getStatus(water, targets.water);
 
     const getLevel = (s) =>
-        s.label === "Normal" ? "normal" : s.label === "Asagi" ? "low" : "high";
+        s.label === "Normal" ? "normal" : s.label === "Low" ? "low" : "high";
 
     const tips = [];
 
-    if (proteinStatus.label === "Asagi")
-        tips.push(`Protein qebulunu artirin (hedef: ${targets.protein}q). Toyuq, yumurta ve ya kesmik yeyin.`);
-    if (proteinStatus.label === "Yuksek")
-        tips.push("Boyreklere elave yuk vermemek ucun proteini azca azaldin.");
+    if (proteinStatus.label === "Low")
+        tips.push(`Increase protein intake (target: ${targets.protein}g). Try chicken, eggs, or cottage cheese.`);
+    if (proteinStatus.label === "High")
+        tips.push("Reduce protein slightly to avoid unnecessary kidney strain.");
 
-    if (carbStatus.label === "Asagi")
-        tips.push("Daha cox enerji ucun tam taxil, meyve ve ya duyu elave edin.");
-    if (carbStatus.label === "Yuksek")
-        tips.push("Sade karbohidratlari (seker, ag corek) azaldin ve kompleks karbohidratlara kecin.");
+    if (carbStatus.label === "Low")
+        tips.push("Add whole grains, fruits, or rice for more energy.");
+    if (carbStatus.label === "High")
+        tips.push("Reduce simple carbs and switch to complex carbohydrates.");
 
-    if (fatStatus.label === "Asagi")
-        tips.push("Zeytun yagi, avokado ve ya qoz kimi saglam yaglari daxil edin.");
-    if (fatStatus.label === "Yuksek")
-        tips.push("Qizardilmis yemeleri ve yag qebulunu azaldin.");
+    if (fatStatus.label === "Low")
+        tips.push("Include healthy fats like olive oil, avocado, or nuts.");
+    if (fatStatus.label === "High")
+        tips.push("Reduce fried foods and overall fat intake.");
 
-    if (waterStatus.label === "Asagi")
-        tips.push(`Gundelik en az ${targets.water} ml su icin. Siz ${water} ml icdiniz.`);
+    if (waterStatus.label === "Low")
+        tips.push(`Drink at least ${targets.water} ml of water daily. You drank ${water} ml.`);
 
-    if (kcalStatus.label === "Asagi")
-        tips.push("Kalori qebulunuz cox asagidir - daha cox yemek yemmeyi dusunun.");
-    if (kcalStatus.label === "Yuksek")
-        tips.push("Kalori hedefnizi kecdiniz - porsiya olculerine diqqet edin.");
+    if (kcalStatus.label === "Low")
+        tips.push("Your calorie intake is too low. Consider eating more.");
+    if (kcalStatus.label === "High")
+        tips.push("You exceeded your calorie target. Watch portion sizes.");
 
     if (tips.length === 0)
-        tips.push("Ela! Bu gun qidalamaniz cox yaxsi balanslasdirilib. Bele davam edin!");
+        tips.push("Great! Your nutrition is well balanced today. Keep it up!");
 
     const isBalanced = [kcalStatus, proteinStatus, carbStatus, fatStatus]
         .every(s => s.label === "Normal");
@@ -76,15 +76,14 @@ export default function NutritionResult({ data, tdee }) {
         <div className="nut-wrapper">
             <div className="nut-container">
 
-                {/* Kalori Xulasesi */}
                 <div className="nut-section">
-                    <h2 className="nut-section-title">Gundelik Kalori Xulasesi</h2>
+                    <h2 className="nut-section-title">Daily Calorie Summary</h2>
                     <div className="nut-kcal-box">
                         <div className="nut-kcal-main">
                             <span className="nut-kcal-value">{Math.round(totals.kcal)}</span>
-                            <span className="nut-kcal-label">kcal qebul edildi</span>
+                            <span className="nut-kcal-label">kcal consumed</span>
                         </div>
-                        <div className="nut-kcal-target">Gundelik hedef: {targets.kcal} kcal</div>
+                        <div className="nut-kcal-target">Target: {targets.kcal} kcal</div>
                         <div className="nut-progress-wrap">
                             <div className="nut-progress-track">
                                 <div
@@ -99,15 +98,14 @@ export default function NutritionResult({ data, tdee }) {
                     </div>
                 </div>
 
-                {/* Makronutrientler */}
                 <div className="nut-section">
-                    <h2 className="nut-section-title">Makronutrientler</h2>
+                    <h2 className="nut-section-title">Macronutrients</h2>
                     <div className="nut-macro-grid">
                         {[
                             { label: "Protein", val: totals.protein, target: targets.protein, unit: "g", status: proteinStatus },
-                            { label: "Karbohidrat", val: totals.carb, target: targets.carb, unit: "g", status: carbStatus },
-                            { label: "Yag", val: totals.fat, target: targets.fat, unit: "g", status: fatStatus },
-                            { label: "Su", val: water, target: targets.water, unit: "ml", status: waterStatus },
+                            { label: "Carbs", val: totals.carb, target: targets.carb, unit: "g", status: carbStatus },
+                            { label: "Fat", val: totals.fat, target: targets.fat, unit: "g", status: fatStatus },
+                            { label: "Water", val: water, target: targets.water, unit: "ml", status: waterStatus },
                         ].map(({ label, val, target, unit, status }) => (
                             <div className="nut-macro-card" key={label}>
                                 <div className="nut-macro-header">
@@ -123,22 +121,21 @@ export default function NutritionResult({ data, tdee }) {
                                         style={{ width: `${barW(val, target)}%` }}
                                     />
                                 </div>
-                                <div className="nut-macro-target">Hedef: {target} {unit}</div>
+                                <div className="nut-macro-target">Target: {target} {unit}</div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                {/* Gundelik Muqayise */}
                 <div className="nut-section">
-                    <h2 className="nut-section-title">Gundelik Muqayise</h2>
+                    <h2 className="nut-section-title">Daily Comparison</h2>
                     <div className="nut-compare-list">
                         {[
-                            { label: "Kalori", actual: Math.round(totals.kcal), target: targets.kcal, unit: "kcal", status: kcalStatus },
+                            { label: "Calories", actual: Math.round(totals.kcal), target: targets.kcal, unit: "kcal", status: kcalStatus },
                             { label: "Protein", actual: Math.round(totals.protein), target: targets.protein, unit: "g", status: proteinStatus },
-                            { label: "Karbohidrat", actual: Math.round(totals.carb), target: targets.carb, unit: "g", status: carbStatus },
-                            { label: "Yag", actual: Math.round(totals.fat), target: targets.fat, unit: "g", status: fatStatus },
-                            { label: "Su", actual: Math.round(water), target: targets.water, unit: "ml", status: waterStatus },
+                            { label: "Carbs", actual: Math.round(totals.carb), target: targets.carb, unit: "g", status: carbStatus },
+                            { label: "Fat", actual: Math.round(totals.fat), target: targets.fat, unit: "g", status: fatStatus },
+                            { label: "Water", actual: Math.round(water), target: targets.water, unit: "ml", status: waterStatus },
                         ].map(({ label, actual, target, unit, status }) => (
                             <div className="nut-compare-row" key={label}>
                                 <span className="nut-compare-label">{label}</span>
@@ -149,34 +146,20 @@ export default function NutritionResult({ data, tdee }) {
                     </div>
                 </div>
 
-                {/* Analiz */}
                 <div className="nut-section">
-                    <h2 className="nut-section-title">Analiz</h2>
+                    <h2 className="nut-section-title">Analysis</h2>
                     <div className="nut-analysis-box">
                         <div className="nut-analysis-main">
-                            Qidalamaniz{" "}
+                            Your nutrition is{" "}
                             <strong className={isBalanced ? "text-success" : "text-warning"}>
-                                {isBalanced ? "balanslasdirilib" : "balanslasdirilamayib"}
+                                {isBalanced ? "balanced" : "not balanced"}
                             </strong>
-                        </div>
-                        <div className="nut-analysis-grid">
-                            {[
-                                { label: "Protein", level: getLevel(proteinStatus) },
-                                { label: "Karbohidrat", level: getLevel(carbStatus) },
-                                { label: "Yag", level: getLevel(fatStatus) },
-                            ].map(({ label, level }) => (
-                                <div className="nut-analysis-item" key={label}>
-                                    <span className="nut-analysis-key">{label}:</span>
-                                    <span className={`nut-analysis-val level-${level}`}>{level === "normal" ? "Normal" : level === "low" ? "Asagi" : "Yuksek"}</span>
-                                </div>
-                            ))}
                         </div>
                     </div>
                 </div>
 
-                {/* Tovsiyeler */}
                 <div className="nut-section">
-                    <h2 className="nut-section-title">Tovsiyeler</h2>
+                    <h2 className="nut-section-title">Recommendations</h2>
                     <div className="nut-tips-list">
                         {tips.map((t, i) => (
                             <div className="nut-tip" key={i}>{t}</div>

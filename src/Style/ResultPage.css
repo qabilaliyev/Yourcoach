@@ -1,0 +1,656 @@
+/* ================================================================
+   YourCoach — ResultPage.css
+   Palette : #1E3A8A (navy) · #FF8F00 (amber) · #f8fafc / #fff
+   Font    : Montserrat  (matches Header + Hero + Footer)
+   Import this AFTER Calculator.css — overrides result-specific styles
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+/* ── Page wrapper ─────────────────────────────────────────────── */
+.hc-wrap {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f8fafc;
+    padding: 48px 20px 64px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+/* ── Result card ──────────────────────────────────────────────── */
+.hc-card.hc-result {
+    max-width: 860px !important;
+    width: 100%;
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-top: 3px solid #1E3A8A;
+    border-radius: 20px;
+    padding: 52px 52px !important;
+    box-shadow: 0 8px 32px rgba(30, 58, 138, .09);
+    text-align: center;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    margin-top: 24px;
+}
+
+/* ── BMI circle ───────────────────────────────────────────────── */
+.hc-result-circle {
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+    background: #eef2fb;
+    border: 3px solid #bfcfef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    gap: 2px;
+    position: relative;
+}
+
+/* amber ring glow */
+.hc-result-circle::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid rgba(255, 143, 0, .2);
+}
+
+.hc-bmi-val {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    color: #1E3A8A;
+    line-height: 1;
+    letter-spacing: -.03em;
+}
+
+.hc-bmi-lbl {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+/* ── Title ────────────────────────────────────────────────────── */
+.hc-result-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0 0 12px;
+    letter-spacing: -.025em;
+}
+
+/* ── Status badge ─────────────────────────────────────────────── */
+.hc-result-status {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    padding: 5px 18px;
+    border-radius: 9999px;
+    margin-bottom: 32px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+.status-normal {
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1.5px solid #bbf7d0;
+}
+
+.status-underweight {
+    background: #eef2fb;
+    color: #1E3A8A;
+    border: 1.5px solid #bfcfef;
+}
+
+.status-overweight {
+    background: #fff4e0;
+    color: #b45309;
+    border: 1.5px solid #fde68a;
+}
+
+.status-obese {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1.5px solid #fca5a5;
+}
+
+/* ── Result metric cards ──────────────────────────────────────── */
+.hc-result-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.hc-rc {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* amber left accent on hover */
+.hc-rc::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #FF8F00;
+    border-radius: 0 2px 2px 0;
+    transform: scaleY(0);
+    transition: transform .18s ease;
+}
+
+.hc-rc:hover {
+    border-color: #bfcfef;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, .08);
+    transform: translateY(-2px);
+}
+
+.hc-rc:hover::before {
+    transform: scaleY(1);
+}
+
+.hc-rc-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 6px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+.hc-rc-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    color: #1E3A8A;
+    letter-spacing: -.025em;
+    line-height: 1;
+}
+
+.hc-rc-unit {
+    font-size: 12px;
+    font-weight: 400;
+    color: #94a3b8;
+}
+
+/* ── Divider ──────────────────────────────────────────────────── */
+.hc-divider {
+    height: 1.5px;
+    background: #e2e8f0;
+    margin: 28px 0;
+}
+
+/* ── Nutrition result section ─────────────────────────────────── */
+.hc-nutrition,
+.nut-wrapper {
+    width: 100%;
+    text-align: left;
+}
+
+.nut-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.hc-nut-section,
+.nut-section {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.hc-nut-title,
+.nut-section-title {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1E3A8A;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid #e2e8f0;
+    letter-spacing: -.01em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hc-nut-title::after,
+.nut-section-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #FF8F00, transparent);
+    border-radius: 1px;
+}
+
+/* calorie summary box */
+.hc-nut-summary-box,
+.nut-kcal-box {
+    background: #eef2fb;
+    border: 1.5px solid #bfcfef;
+    border-radius: 14px;
+    padding: 22px 26px;
+}
+
+.hc-nut-kcal-big,
+.nut-kcal-main {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.hc-nut-kcal-num,
+.nut-kcal-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: #1E3A8A;
+    letter-spacing: -.04em;
+    line-height: 1;
+}
+
+.hc-nut-kcal-lbl,
+.nut-kcal-label {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.hc-nut-kcal-target,
+.nut-kcal-target {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.hc-nut-kcal-bar-wrap,
+.nut-progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hc-nut-kcal-bar-track,
+.nut-progress-track {
+    flex: 1;
+    height: 6px;
+    background: rgba(30, 58, 138, .1);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.hc-nut-kcal-bar-fill,
+.nut-progress-fill {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width .45s ease;
+}
+
+.nut-progress-fill.status-ok {
+    background: #22c55e;
+}
+
+.nut-progress-fill.status-low {
+    background: #FF8F00;
+}
+
+.nut-progress-fill.status-high {
+    background: #dc2626;
+}
+
+/* macro grid */
+.hc-macro-grid,
+.nut-macro-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-macro-card,
+.nut-macro-card {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.hc-macro-card:hover,
+.nut-macro-card:hover {
+    border-color: #bfcfef;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, .07);
+}
+
+.hc-macro-top,
+.nut-macro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.hc-macro-label,
+.nut-macro-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+.hc-macro-val,
+.nut-macro-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #1E3A8A;
+    margin-bottom: 10px;
+    line-height: 1;
+    letter-spacing: -.025em;
+}
+
+.hc-macro-unit,
+.nut-macro-unit {
+    font-size: 13px;
+    font-weight: 400;
+    color: #94a3b8;
+}
+
+.hc-macro-track {
+    width: 100%;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.hc-macro-fill {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width .4s ease;
+}
+
+.hc-macro-target,
+.nut-macro-target {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+    font-weight: 400;
+}
+
+/* status badges */
+.hc-status-badge,
+.nut-badge,
+.nut-badge-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    white-space: nowrap;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    border: 1.5px solid transparent;
+    font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+.nut-badge-sm {
+    padding: 2px 8px;
+}
+
+.hc-status--ok,
+.nut-badge.status-ok,
+.nut-badge-sm.status-ok,
+.status-ok {
+    background: #f0fdf4;
+    color: #15803d;
+    border-color: #bbf7d0;
+}
+
+.hc-status--low,
+.nut-badge.status-low,
+.nut-badge-sm.status-low,
+.status-low {
+    background: #fff4e0;
+    color: #b45309;
+    border-color: #fde68a;
+}
+
+.hc-status--high,
+.nut-badge.status-high,
+.nut-badge-sm.status-high,
+.status-high {
+    background: #fef2f2;
+    color: #dc2626;
+    border-color: #fca5a5;
+}
+
+/* compare list */
+.hc-compare-list,
+.nut-compare-list {
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hc-compare-row,
+.nut-compare-row {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 18px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 13.5px;
+    transition: background .18s ease;
+    font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+.hc-compare-row:last-child,
+.nut-compare-row:last-child {
+    border-bottom: none;
+}
+
+.hc-compare-row:hover,
+.nut-compare-row:hover {
+    background: #f8fafc;
+}
+
+.hc-compare-label,
+.nut-compare-label {
+    font-weight: 600;
+    color: #111827;
+}
+
+.hc-compare-vals,
+.nut-compare-values {
+    color: #6b7280;
+    font-weight: 400;
+}
+
+/* analysis box */
+.hc-analysis-box,
+.nut-analysis-box {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px 22px;
+}
+
+.hc-analysis-overall,
+.nut-analysis-main {
+    font-size: 13.5px;
+    color: #6b7280;
+    margin-bottom: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.text-success {
+    color: #15803d !important;
+}
+
+.text-warning {
+    color: #b45309 !important;
+}
+
+.hc-analysis-grid,
+.nut-analysis-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hc-analysis-item,
+.nut-analysis-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hc-analysis-key,
+.nut-analysis-key {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.hc-analysis-val,
+.nut-analysis-val {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.level-normal,
+.hc-level--normal {
+    color: #15803d;
+}
+
+.level-low,
+.hc-level--low {
+    color: #b45309;
+}
+
+.level-high,
+.hc-level--high {
+    color: #dc2626;
+}
+
+/* tips */
+.hc-tips-list,
+.nut-tips-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hc-tip,
+.nut-tip {
+    background: #fff4e0;
+    border: 1.5px solid #fde68a;
+    border-left: 3px solid #FF8F00;
+    color: #374151;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 400;
+}
+
+/* ── Restart button ───────────────────────────────────────────── */
+.hc-btn-restart {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1.5px solid #e2e8f0;
+    background: transparent;
+    color: #64748b;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .18s ease;
+}
+
+.hc-btn-restart:hover {
+    border-color: #bfcfef;
+    color: #1E3A8A;
+    background: #eef2fb;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .hc-card.hc-result {
+        padding: 36px 28px !important;
+    }
+
+    .hc-result-cards,
+    .nut-macro-grid,
+    .hc-macro-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .hc-wrap {
+        padding: 20px 14px 48px;
+    }
+
+    .hc-card.hc-result {
+        padding: 28px 20px !important;
+    }
+
+    .hc-result-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hc-nut-kcal-num,
+    .nut-kcal-value {
+        font-size: 36px;
+    }
+
+    .hc-result-title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .hc-result-cards,
+    .nut-macro-grid,
+    .hc-macro-grid {
+        grid-template-columns: 1fr;
+    }
+}

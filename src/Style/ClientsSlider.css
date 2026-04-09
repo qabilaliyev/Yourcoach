@@ -1,0 +1,199 @@
+/* ── Clients Slider ── */
+.cs-root {
+    width: 100%;
+    background-color: #1E3A8A;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.cs-label {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.cs-heading {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 60px;
+}
+
+/* Track */
+.cs-track-wrap {
+    width: 880px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.cs-track {
+    display: flex;
+    gap: 28px;
+    transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* Card */
+.cs-card {
+    flex-shrink: 0;
+    width: 880px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.5px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 44px 48px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.6s ease, transform 0.6s ease, background 0.6s ease;
+    opacity: 0.35;
+    transform: scale(0.93);
+}
+
+.cs-card--active {
+    opacity: 1;
+    transform: scale(1);
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+.cs-img {
+
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.cs-body {
+    flex: 1;
+}
+
+.cs-quote {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.65;
+    margin-bottom: 24px;
+    font-style: italic;
+}
+
+.cs-quote::before {
+    content: '"';
+    font-size: 52px;
+    color: rgba(255, 255, 255, 0.18);
+    line-height: 0;
+    vertical-align: -20px;
+    margin-right: 4px;
+}
+
+.cs-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.cs-result {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Progress bar */
+.cs-progress-wrap {
+    width: 680px;
+    margin: 28px auto 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.cs-progress-fill {
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 2px;
+    transition: width 0.05s linear;
+}
+
+/* Dots */
+.cs-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 32px;
+}
+
+.cs-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    padding: 0;
+}
+
+.cs-dot--active {
+    background: #fff;
+    width: 28px;
+    border-radius: 4px;
+}
+
+/* Arrows */
+.cs-arrows {
+    display: flex;
+    justify-content: center;
+    gap: 56px;
+    margin-top: 20px;
+}
+
+.cs-arrow {
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: #FF8F00;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.cs-arrow:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.08);
+}
+
+/* Responsive */
+@media (max-width: 740px) {
+
+    .cs-track-wrap,
+    .cs-progress-wrap {
+        width: 90vw;
+    }
+
+    .cs-card {
+        width: 90vw;
+        flex-direction: column;
+        padding: 32px 24px;
+        text-align: center;
+    }
+
+    .cs-quote::before {
+        display: none;
+    }
+}

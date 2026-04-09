@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import '../Style/MealsPage.css'
 
 function calcTDEE(data) {
     const w = +data.weight, h = +data.height, a = +data.age;
@@ -669,6 +670,7 @@ export default function MealsPage() {
     };
 
     return (
+
         <main className="meals-page">
             <div className="meals-container">
                 <div className="meals-card">
@@ -723,6 +725,8 @@ export default function MealsPage() {
                     </div>
                 </div>
             </div>
+
         </main>
     );
 }
+

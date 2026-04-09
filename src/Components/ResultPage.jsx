@@ -2,9 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import NutritionResult from './NutritionResult'
 import PlanDashboard from './PlanDashboard'
-import "../Style/Calculator.css"
-import "../Style/Main.css"
-import "../Style/PlanDashboard.css"
+import "../Style/ResultPage.css"
 
 function calcBMI(height, weight) {
     const h = height / 100;
@@ -65,11 +63,6 @@ export default function ResultPage() {
 
     return (
         <div className="hc-wrap">
-
-            {/* 1. Haftalık Plan Dashboard */}
-            <PlanDashboard data={data} />
-
-            {/* 2. BMI & Özet Kart */}
             <div className="hc-card hc-result" style={{ marginTop: 24 }}>
                 <div className="hc-result-circle">
                     <span className="hc-bmi-val">{bmi}</span>
@@ -94,7 +87,7 @@ export default function ResultPage() {
 
                 <div className="hc-divider" />
 
-                {/* 3. Bugün ne yedik & Karşılaştırma */}
+
                 <NutritionResult data={data} tdee={tdee} />
 
                 <button className="hc-btn-restart" onClick={handleRestart}>Restart</button>
